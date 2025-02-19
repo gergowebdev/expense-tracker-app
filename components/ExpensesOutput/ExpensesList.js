@@ -1,6 +1,5 @@
 import { FlatList } from "react-native";
 import ExpenseItem from "./ExpenseItem";
-import { deserialize } from "mongodb";
 
 function renderExpenseItem(itemData) {
     return <ExpenseItem {...itemData.item} />;
