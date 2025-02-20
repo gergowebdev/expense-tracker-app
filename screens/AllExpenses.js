@@ -8,6 +8,7 @@ function AllExpenses() {
         <ExpensesOutput
             expenses={expensesCtx.expenses}
             expensesPeriod="Total"
+            fallbackText="No registered expenses found"
         />
     );
 }
