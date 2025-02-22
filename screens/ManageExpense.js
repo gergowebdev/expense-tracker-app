@@ -12,6 +12,13 @@ function ManageExpense({ route, navigation }) {
     const editedExpensedId = route.params?.expenseId;
     const isEditing = !!editedExpensedId;
 
+    // we get the id we are editing (editedExpensedId), we can use this id to
+    // fetch all the data we need, so the entire Expense, and than we can pass the data into
+    // the ExpenseForm, to set that data as an initial state for our form state
+    const selectedExpense = expensesCtx.expenses.find(
+        (expense) => expense.id === editedExpensedId
+    );
+
     useLayoutEffect(() => {
         navigation.setOptions({
             title: isEditing ? "Edit Expense" : "Add Expense",
@@ -42,6 +49,7 @@ function ManageExpense({ route, navigation }) {
                 submitButtonLabel={isEditing ? "Update" : "Add"}
                 onSubmit={confirmHandler}
                 onCancel={cancelHandler}
+                defaultValues={selectedExpense}
             />
 
             {isEditing && (
